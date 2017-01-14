@@ -9,6 +9,9 @@
 //     node example.js 
 // 
 
+
+
+function blah() {
 var   	async = require("async"),		// async module
 	request = require("request"),		// request module
 	email = "campionf@uw.edu",				// your account email
@@ -19,9 +22,6 @@ var   	async = require("async"),		// async module
 	templateRoleName = "Signer",		// template role that exists on template referenced above
 	baseUrl = "",				// we will retrieve this
 	envelopeId = "";			// created from step 2
-
-function blah() {
-
 
 async.waterfall(
 [
