@@ -1,0 +1,22 @@
+{
+  "name": "defhacks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/campionfellin/voicePassport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/campionfellin/voicePassport/issues"
+  },
+  "homepage": "https://github.com/campionfellin/voicePassport#readme",
+  "dependencies": {
+    "recordrtc": "^5.4.0"
+  }
+}
