@@ -1,6 +1,6 @@
 function getBaseURL() {
 
-
+console.log("baseurl");
 
 var url = "https://demo.docusign.net/restapi/v2/login_information";
 var body = "";	// no request body for login api call
