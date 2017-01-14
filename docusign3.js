@@ -20,6 +20,9 @@ var   	async = require("async"),		// async module
 	baseUrl = "",				// we will retrieve this
 	envelopeId = "";			// created from step 2
 
+function blah() {
+
+
 async.waterfall(
 [
 	//////////////////////////////////////////////////////////////////////
@@ -99,6 +102,8 @@ async.waterfall(
 		});
 	}
 ]);
+
+}
 
 //***********************************************************************************************
 // --- HELPER FUNCTIONS ---
