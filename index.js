@@ -8,6 +8,11 @@ function stopRecording()
 }
 
 
+function redirectToDocusign() {
+	window.location = "/docusign";
+}
+
+
 
 
 

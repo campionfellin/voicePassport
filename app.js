@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var customURL;
+
 
 app.use(express.static(__dirname ));
 
@@ -7,13 +9,19 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+
+
 app.get('/docusign', (req, res) => {
 
 
-	blah();
+	blah(function() {
+		res.redirect(customURL.url);
+	});
 
 
-    res.send("hihihi");
+
+
+    //res.send("hihihi");
 });
 
 app.listen(3000, () => {
@@ -31,7 +39,7 @@ var async = require("async"),		// async module
 	baseUrl = "",				// we will retrieve this
 	envelopeId = "";	
 
-function blah() {
+function blah(callback) {
 
 
 		// created from step 2
@@ -108,10 +116,20 @@ async.waterfall(
 		
 		// send the request...
 		request(options, function(err, res, body) {
+			console.log("_----------_______-");
+			customURL = JSON.parse(res.body);
+			console.log(customURL.url);
+			//window.location = customURL.url;
+			
+			console.log(res.body.url);
+			console.log("alskjdjdjaslkdjalksjdlkasjdlkasjkldjlksajldksa");
+
+
 			if(!parseResponseBody(err, res, body))
 				return;
 			else
 				console.log("\nNavigate to the above URL to start the Embedded Signing workflow...");
+				callback();
 		});
 	}
 ]);
