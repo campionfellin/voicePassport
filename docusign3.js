@@ -11,7 +11,10 @@
 
 
 
-var   	async = require("async"),		// async module
+function blah() {
+
+
+var async = require("async"),		// async module
 	request = require("request"),		// request module
 	email = "campionf@uw.edu",				// your account email
 	password = "hackathon123",			// your account password
@@ -102,7 +105,7 @@ async.waterfall(
 	}
 ]);
 
-
+}
 
 //***********************************************************************************************
 // --- HELPER FUNCTIONS ---
