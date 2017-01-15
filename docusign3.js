@@ -20,8 +20,8 @@ var async = require("async"),		// async module
 	password = "hackathon123",			// your account password
 	integratorKey = "541f00cf-cc72-4048-90cf-991baf9c24f7",			// your account Integrator Key (found on Preferences -> API page)
 	recipientName = "Campion",			// recipient (signer) name
-	templateId = "bd80628d-3b0b-489a-8a9b-e0bb30ce4c2a",			// provide valid templateId from a template in your account
-	templateRoleName = "Signer",		// template role that exists on template referenced above
+	templateId = "690365fa-dc8d-4e32-8d91-ee76fcec4d83",			// provide valid templateId from a template in your account
+	templateRoleName = "Buyer",		// template role that exists on template referenced above
 	baseUrl = "",				// we will retrieve this
 	envelopeId = "";			// created from step 2
 
