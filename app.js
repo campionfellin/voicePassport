@@ -11,6 +11,12 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+app.post('/', function (req, res) {
+
+
+	
+  res.send('POST request to homepage');
+});
 
 
 app.get('/docusign', (req, res) => {

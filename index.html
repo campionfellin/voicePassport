@@ -27,7 +27,7 @@
 		<button onclick="startRecording(this)" class="hide" id="start">Record</button>
 		<button onclick="stopRecording(this)" class="hide" id="stop">Stop Recording</button>
 		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
- 	 	<ul id="recordingslist" class="hide"></ul> <!-- add this class: class="hide"-->
+ 	 	<ul id="recordingslist"></ul> <!-- add this class: class="hide"-->
 
  	 
 		<script>
@@ -63,6 +63,7 @@
 			createDownloadLink();
 			
 			recorder.clear();
+			//redirectToDocusign(); //use this to skip the microsoft verification
 		}
 		function createDownloadLink() {
 			recorder && recorder.exportWAV(function(blob) {
