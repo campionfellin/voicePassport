@@ -30,14 +30,22 @@
  	 	<ul id="recordingslist" class="hide"></ul> <!-- add this class: class="hide"-->
 
  	 
-
 		<script>
 		var audio_context;
 		var recorder;
+		const key = '2f761d2113844fca9e6de62a2b15b4e9';
+		const id = '111f427c-3791-468f-b709-fcef7660fff9';
+
+		function createEnrollment() {
+			var url;
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', url);
+			xhr.setRequestHeader('multipart/form');
+		}
+		
 		function startUserMedia(stream) {
 			var input = audio_context.createMediaStreamSource(stream);
-			console.log('Media stream created.');
-
 			recorder = new Recorder(input);
 			console.log('Recorder initialised.');
 		}
@@ -52,13 +60,9 @@
 			button.disabled = true;
 			button.previousElementSibling.disabled = false;
 			console.log('Stopped recording.');
-			
-			// create WAV download link using audio data blob
 			createDownloadLink();
 			
 			recorder.clear();
-
-			redirectToDocusign();
 		}
 		function createDownloadLink() {
 			recorder && recorder.exportWAV(function(blob) {
@@ -74,21 +78,22 @@
 				hf.innerHTML = hf.download;
 				li.appendChild(au);
 				li.appendChild(hf);
+
+
 				recordingslist.appendChild(li);
 			});
 		}
+		
 		window.onload = function init() {
 			try {
 				window.AudioContext = window.AudioContext || window.webkitAudioContext;
 				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-
 				window.URL = window.URL || window.webkitURL;
 				
 				audio_context = new AudioContext;
 				console.log('Audio context set up.');
-				console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
 			} catch (e) {
-				alert('No web audio support in this browser!', e);
+				alert('No audio context', e);
 			}
 			
 			navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
