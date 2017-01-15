@@ -21,23 +21,15 @@
 
 		</br>
 		</br>
-		<button onclick="startRecording(this)">Record</button>
-		<button onclick="stopRecording(this)">Stop Recording</button>
-		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
- 	 	<ul id="recordingslist"></ul>
 
-      <form action="signup.php" method="post" name="signup" hidden>
-      <div class="input">
-        <input type="text" class="button" id="email" name="number" placeholder="Enter your phone number &amp; choose your carrier" maxlength="10">
-        <select class="button" id="carrier" name="carrier">
-          <option value="" disabled selected>Carrier</option>
-          <option value="vtext.com">Verizon</option>
-          <option value="pm.sprint.com">Sprint</option>
-          <option value="txt.att.net">Att&amp;t</option>
-        </select>
-        <input type="submit" class="button" id="submit" name="submit" value="SIGN UP">
-      </div>
-    </form>
+		<p class="hidden" id="verify">Verify Yourself</p>
+
+		<button onclick="startRecording(this)" class="hide" id="start">Record</button>
+		<button onclick="stopRecording(this)" class="hide" id="stop">Stop Recording</button>
+		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
+ 	 	<ul id="recordingslist" class="hide"></ul> <!-- add this class: class="hide"-->
+
+ 	 
 
 		<script>
 		var audio_context;
@@ -65,6 +57,8 @@
 			createDownloadLink();
 			
 			recorder.clear();
+
+			redirectToDocusign();
 		}
 		function createDownloadLink() {
 			recorder && recorder.exportWAV(function(blob) {

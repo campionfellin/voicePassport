@@ -26,6 +26,9 @@ function nextButton2() {
 	document.getElementById("nextButton2").className = "hide";
 	document.getElementById("upload").className = "hide";
 	document.getElementById("fileUpload").className = "hide";
+	document.getElementById("verify").className = "";	
+	document.getElementById("start").className = "btn btn-default";
+	document.getElementById("stop").className = "btn btn-default";
 }
 
 
