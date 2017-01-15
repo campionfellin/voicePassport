@@ -65,21 +65,3 @@ button3.click()
 print "signed and sealed"
 
 browser.quit()
-
-#
-#try:
- #   WebDriverWait(browser, delay).until(EC.presence_of_element_located(browser.find_element_by_id('#action-bar-btn-continue')))
-  #  print "Page is ready!"
-   # button = browser.find_element_by_css_selector("#action-bar-btn-continue")
-    #button.click()
-#except TimeoutException:
-#    print "Loading took too much time!"
-
-
-#button = browser.find_element_by_css_selector("#action-bar-btn-continue")
-#button.click()
-
-#elem = browser.find_element_by_name('p')  # Find the search box
-#elem.send_keys('seleniumhq' + Keys.RETURN)
-
-#browser.quit()

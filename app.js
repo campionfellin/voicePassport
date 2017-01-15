@@ -32,8 +32,8 @@ app.get('/docusign', (req, res) => {
 
 
 
-		//res.redirect(customURL.url);
-		res.send("Your doc has been signed. Thanks")
+		res.redirect("/thankyou.html");
+		//res.send("Your doc has been signed. Thanks")
 	});
 
 
