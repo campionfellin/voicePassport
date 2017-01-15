@@ -26,6 +26,7 @@
 
 		<button onclick="startRecording(this)" class="hide" id="start">Record</button>
 		<button onclick="stopRecording(this)" class="hide" id="stop">Stop Recording</button>
+		<button onclick="verify()">Verify</button>
 		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
  	 	<ul id="recordingslist"></ul> <!-- add this class: class="hide"-->
 
@@ -36,15 +37,35 @@
 		const key = '2f761d2113844fca9e6de62a2b15b4e9';
 		const id = '111f427c-3791-468f-b709-fcef7660fff9';
 
-		function createEnrollment() {
+		function verify() {
 			var url = 'https://api.projectoxford.ai/spid/v1.0/identificationProfiles/111f427c-3791-468f-b709-fcef7660fff9/enroll?shortAudio=true';
 
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', url);
-			xhr.setRequestHeader('Content-Type', 'multipart/form');
-			xhr.setRequestHeader('Ocp-Apim-Subscription-Key', 'key');
+			var file = new XMLHttpRequest();
+			file.open('GET', 'downsampled.wav');
+			file.responseType = 'arraybuffer';
 
-			xhr.send(audio);
+			file.onload = function (evt) {
+				var arrayBuffer = file.response;
+				if (arrayBuffer) {
+					var byteArray = new Uint8Array(arrayBuffer);
+					if (file.readyState == XMLHttpRequest.DONE) {
+						var xhr = new XMLHttpRequest();
+						xhr.open('POST', url);
+						xhr.setRequestHeader('Content-Type', 'multipart/form');
+						xhr.setRequestHeader('Ocp-Apim-Subscription-Key', key);
+
+						xhr.onreadystatechange = function() {
+							if (xhr.readyState == XMLHttpRequest.DONE) {
+								if (xhr.status == 2020) {
+									
+								}
+							}
+						}
+						xhr.send(byteArray);
+					}
+				}
+			}
+			file.send();	
 		}
 		
 		function startUserMedia(stream) {
@@ -77,7 +98,8 @@
         link.download = 'output.wav';
         var click = document.createEvent("MouseEvents");
         click.initEvent("click", true, true);
-        link.dispatchEvent(click);						
+        link.dispatchEvent(click);	
+				
 			});
 		}
 		
