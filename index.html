@@ -3,18 +3,15 @@
 <html>
 	<head>
 		<title>VoicePassport</title>
-		<script src="require.js"></script>
 		<script src="index.js"></script>
 		<script src="docusign3.js"></script>
-	
+		<script src="./public/js/recorder.js"></script>
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 			<link rel="stylesheet" href="index.css">
 
 	</head>
 	<body>
-
-
-	
 		<p id="welcome">Welcome to VoicePassport</p>
 		<button class="btn btn-default" onclick="nextButton()" id="nextButton">Next...</button>
 
@@ -24,9 +21,10 @@
 
 		</br>
 		</br>
-		<button onclick="recordVoice()">Record</button>
-		<button onclick="stopRecording()">Stop Recording</button>
+		<button onclick="startRecording(this)">Record</button>
+		<button onclick="stopRecording(this)">Stop Recording</button>
 		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
+ 	 	<ul id="recordingslist"></ul>
 
       <form action="signup.php" method="post" name="signup" hidden>
       <div class="input">
@@ -41,7 +39,67 @@
       </div>
     </form>
 
+		<script>
+		var audio_context;
+		var recorder;
+		function startUserMedia(stream) {
+			var input = audio_context.createMediaStreamSource(stream);
+			console.log('Media stream created.');
 
-	<script src="./public/recorder/recorder.js"></script>
+			recorder = new Recorder(input);
+			console.log('Recorder initialised.');
+		}
+		function startRecording(button) {
+			recorder && recorder.record();
+			button.disabled = true;
+			button.nextElementSibling.disabled = false;
+			console.log('Recording...');
+		}
+		function stopRecording(button) {
+			recorder && recorder.stop();
+			button.disabled = true;
+			button.previousElementSibling.disabled = false;
+			console.log('Stopped recording.');
+			
+			// create WAV download link using audio data blob
+			createDownloadLink();
+			
+			recorder.clear();
+		}
+		function createDownloadLink() {
+			recorder && recorder.exportWAV(function(blob) {
+				var url = URL.createObjectURL(blob);
+				var li = document.createElement('li');
+				var au = document.createElement('audio');
+				var hf = document.createElement('a');
+				
+				au.controls = true;
+				au.src = url;
+				hf.href = url;
+				hf.download = new Date().toISOString() + '.wav';
+				hf.innerHTML = hf.download;
+				li.appendChild(au);
+				li.appendChild(hf);
+				recordingslist.appendChild(li);
+			});
+		}
+		window.onload = function init() {
+			try {
+				window.AudioContext = window.AudioContext || window.webkitAudioContext;
+				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+
+				window.URL = window.URL || window.webkitURL;
+				
+				audio_context = new AudioContext;
+				console.log('Audio context set up.');
+				console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+			} catch (e) {
+				alert('No web audio support in this browser!', e);
+			}
+			
+			navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+			});
+		};
+	</script>
 	</body>
 </html>
