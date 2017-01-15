@@ -1,0 +1,1 @@
+var recorder = require('node-record-lpcm16');
