@@ -1,8 +1,72 @@
-[INFO  - 2017-01-15T10:55:02.197Z] GhostDriver - Main - running on port 58781
-[INFO  - 2017-01-15T10:55:02.627Z] Session [10eb93a0-db11-11e6-973a-7dd0d458abdb] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2017-01-15T10:55:02.627Z] Session [10eb93a0-db11-11e6-973a-7dd0d458abdb] - page.customHeaders:  - {}
-[INFO  - 2017-01-15T10:55:02.627Z] Session [10eb93a0-db11-11e6-973a-7dd0d458abdb] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2017-01-15T10:55:02.627Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 10eb93a0-db11-11e6-973a-7dd0d458abdb
-[ERROR - 2017-01-15T10:55:05.211Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1484477705188
+[INFO  - 2017-01-15T16:47:56.766Z] GhostDriver - Main - running on port 62636
+[INFO  - 2017-01-15T16:47:57.117Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-01-15T16:47:57.117Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.customHeaders:  - {}
+[INFO  - 2017-01-15T16:47:57.117Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-01-15T16:47:57.117Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 5de6cc70-db42-11e6-88e5-b5d071e4a4c4
+[ERROR - 2017-01-15T16:47:57.901Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1484498877872
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-01-15T16:47:59.946Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.onError - msg: TypeError: undefined is not an object (evaluating 'r.signing.start')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-01-15T16:47:59.946Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.onError - stack:
+  (anonymous function) (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:74)
+  d (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:33)
+  trigger (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:33)
+  (anonymous function) (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:40)
+  dispatch (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:31)
+  handle (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:31)
+  dispatchEvent (:0)
+  U (:119)
+  $ (:108)
+  $ (:101)
+  gh (:141)
+  sh (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:153)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-01-15T16:47:59.946Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'k.GetTI(e)')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-01-15T16:47:59.946Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.onError - stack:
+  a (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:33)
+  c (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:33)
+  t (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:36)
+  (anonymous function) (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:76)
+  dispatch (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:31)
+  handle (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:31)
+  dispatchEvent (:0)
+  U (:119)
+  $ (:108)
+  $ (:101)
+  gh (:141)
+  sh (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:153)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-01-15T16:48:01.361Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.onError - msg: TypeError: undefined is not an object (evaluating 'sigImg.width')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-01-15T16:48:01.361Z] Session [5de6cc70-db42-11e6-88e5-b5d071e4a4c4] - page.onError - stack:
+  ToggleTab (https://demo.docusign.net/Signing/DocuSign.aspx?insession=1&ti=d80c76af6a1043ada2fdaec79233ad0a:1508)
+  toggleTab (https://demo.docusign.net/Signing/script/JSSigningInterface.js?vers=16.4.102.6603:2)
+  b (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:74)
+  v (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:74)
+  o (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:79)
+  dispatch (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:31)
+  handle (https://demo.docusign.net/Signing/SigningApp/1.14.0/signing_iframeless_desktop.js?cs=7295231:31)
+  dispatchEvent (:0)
+  U (:119)
+  $ (:108)
+  $ (:101)
+  gh (:141)
+  sh (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:152)
+  (anonymous function) (:153)
 
   phantomjs://platform/console++.js:263 in error

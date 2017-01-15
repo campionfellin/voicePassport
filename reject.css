@@ -1,0 +1,12 @@
+
+body {
+  background: url("background.jpeg");
+  font-family: 'Lato', sans-serif;
+  color: #FDFCFB;
+  text-align: center;
+}
+#thanks {
+  font-size: 70px;
+  margin: 17% auto;
+  margin-bottom: 2%;
+}

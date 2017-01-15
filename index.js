@@ -12,6 +12,9 @@ function redirectToDocusign() {
 	window.location = "/docusign";
 }
 
+function redirectToFailure() {
+	window.location = "/reject.html";
+}
 function nextButton() {
 	document.getElementById("nextButton").className = "hide";
 	document.getElementById("welcome").className = "hide";
