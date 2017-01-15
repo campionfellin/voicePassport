@@ -16,7 +16,7 @@ function blah() {
 
 var async = require("async"),		// async module
 	request = require("request"),		// request module
-	email = "campionf@uw.edu",				// your account email
+	email = "campionfellin@gmail.com",				// your account email
 	password = "hackathon123",			// your account password
 	integratorKey = "541f00cf-cc72-4048-90cf-991baf9c24f7",			// your account Integrator Key (found on Preferences -> API page)
 	recipientName = "Campion",			// recipient (signer) name
@@ -63,7 +63,10 @@ async.waterfall(
 				}],
 				"status": "sent"
 			});
-		
+		console.log("-------------------");
+		console.log(body);
+
+		console.log("-------------------");
 		// set request url, method, body, and headers
 		var options = initializeRequest(url, "POST", body, email, password);
 		

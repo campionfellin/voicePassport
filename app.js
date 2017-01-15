@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var PythonShell = require('python-shell');
+
 var customURL;
 
 
@@ -15,7 +17,23 @@ app.get('/docusign', (req, res) => {
 
 
 	blah(function() {
-		res.redirect(customURL.url);
+		var options = {
+		  args: [customURL.url]
+		};
+		 
+		PythonShell.run('docusign.py', options, function (err, results) {
+		  if (err) throw err;
+		  console.log(options.args[0])
+		  console.log(results)
+		  // results is an array consisting of messages collected during execution 
+		 // console.log('results: %j', results);
+		});
+
+
+
+
+		//res.redirect(customURL.url);
+		res.send("Your doc has been signed. Thanks")
 	});
 
 
@@ -34,8 +52,8 @@ var async = require("async"),		// async module
 	password = "hackathon123",			// your account password
 	integratorKey = "541f00cf-cc72-4048-90cf-991baf9c24f7",			// your account Integrator Key (found on Preferences -> API page)
 	recipientName = "Campion",			// recipient (signer) name
-	templateId = "bd80628d-3b0b-489a-8a9b-e0bb30ce4c2a",			// provide valid templateId from a template in your account
-	templateRoleName = "Signer",		// template role that exists on template referenced above
+	templateId = "0f98f05c-de98-4a43-8e6a-e62d45bd2420",			// provide valid templateId from a template in your account
+	templateRoleName = "Buyer",		// template role that exists on template referenced above
 	baseUrl = "",				// we will retrieve this
 	envelopeId = "";	
 
@@ -82,6 +100,10 @@ async.waterfall(
 				}],
 				"status": "sent"
 			});
+		console.log("-------------------");
+		console.log(body);
+
+		console.log("-------------------");
 		
 		// set request url, method, body, and headers
 		var options = initializeRequest(url, "POST", body, email, password);
