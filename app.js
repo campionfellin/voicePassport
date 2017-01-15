@@ -11,11 +11,23 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/', function (req, res) {
+app.post('/audio', function (req, res) {
+
+	console.log(req.body)
+
+	var options = {
+		  args: [req.body]
+		};
+
+	PythonShell.run('downsample.py', options, function (err, results) {
+		  if (err) throw err;
+		  console.log(results)
+		  // results is an array consisting of messages collected during execution 
+		 // console.log('results: %j', results);
+		});
 
 
-	
-  res.send('POST request to homepage');
+  	res.send('Done downsampling. File located at downsampled.wav');
 });
 
 

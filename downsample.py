@@ -1,6 +1,7 @@
 import os
 import wave
 import audioop
+import sys
 
 cwd = os.getcwd()
 
@@ -49,4 +50,6 @@ def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchanne
     return True
 
 
-downsampleWav(cwd + '/test.wav', cwd + '/end.wav', inrate=44100, outrate=16000, inchannels=2, outchannels=1)
+print sys.argv[1]
+
+downsampleWav(sys.argv[1], cwd + '/downsampled.wav', inrate=44100, outrate=16000, inchannels=2, outchannels=1)
