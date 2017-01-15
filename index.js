@@ -12,7 +12,20 @@ function redirectToDocusign() {
 	window.location = "/docusign";
 }
 
+function nextButton() {
+	document.getElementById("nextButton").className = "hide";
+	document.getElementById("welcome").className = "hide";
+	document.getElementById("nextButton2").className = "btn btn-default";
+	document.getElementById("upload").className = "";
+	document.getElementById("fileUpload").className = "";
+
+}
 
 
+function nextButton2() {
+	document.getElementById("nextButton2").className = "hide";
+	document.getElementById("upload").className = "hide";
+	document.getElementById("fileUpload").className = "hide";
+}
 
 

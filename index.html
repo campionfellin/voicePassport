@@ -6,22 +6,40 @@
 		<script src="require.js"></script>
 		<script src="index.js"></script>
 		<script src="docusign3.js"></script>
-		
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<link rel="stylesheet" href="index.css">
 
 	</head>
 	<body>
 
 
-		<p>First, record your voice 3 times</p>
+	
+		<p id="welcome">Welcome to VoicePassport</p>
+		<button class="btn btn-default" onclick="nextButton()" id="nextButton">Next...</button>
+
+		<p id="upload" class="hide">Upload Your Document</p>
+			<input type="file" id="fileUpload" class="hide">
+			<button class="hide" onclick="nextButton2()" id="nextButton2">Next...</button>
+
 		</br>
 		</br>
-		<button onclick="recordVoice()">Record</button>
-		<button onclick="stopRecording()">Stop Recording</button>
-		<button onclick="redirectToDocusign()" id="docusign">asd</button>
+		<button onclick="recordVoice()" class="hide" hidden>Record</button>
+		<button onclick="stopRecording()" class="hide" hidden>Stop Recording</button>
+		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
 
-		<button onclick="getBaseURL()">Sign</button>
-	<button onclick="login()">Sign2</button>
-
+      <form action="signup.php" method="post" name="signup" hidden>
+      <div class="input">
+        <input type="text" class="button" id="email" name="number" placeholder="Enter your phone number &amp; choose your carrier" maxlength="10">
+        <select class="button" id="carrier" name="carrier">
+          <option value="" disabled selected>Carrier</option>
+          <option value="vtext.com">Verizon</option>
+          <option value="pm.sprint.com">Sprint</option>
+          <option value="txt.att.net">Att&amp;t</option>
+        </select>
+        <input type="submit" class="button" id="submit" name="submit" value="SIGN UP">
+      </div>
+    </form>
 
 
 	<script src="./public/recorder/recorder.js"></script>

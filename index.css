@@ -1,0 +1,97 @@
+
+body {
+  background: url("background.jpeg");
+  font-family: 'Lato', sans-serif;
+  color: #FDFCFB;
+  text-align: center;
+}
+
+
+form {
+  width: 450px;
+  margin: 17% auto;
+}
+
+#fileUpload {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#welcome, #upload {
+  font-size: 100px;
+  margin: 17% auto;
+  margin-bottom: 2%;
+}
+
+#nextButton, #nextButton2 {
+  margin-bottom: 10%;
+  margin-top: 1%;
+}
+
+.header {
+  font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+
+.description {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.3em;
+  margin: -2px 0 45px;
+}
+
+
+.input {
+  display: flex;
+  align-items: center;
+}
+
+
+.button {
+  height: 44px;
+  border: none;
+}
+
+#carrier {
+  border-radius: 0 0 0 0;
+  -webkit-appearance: none;
+  background: #FDFCFB;
+  text-align: center;
+}
+
+option {
+  display: inline;
+  text-align: center;
+}
+  
+#email {
+  width: 80%;
+  background: #FDFCFB;
+  font-family: inherit;
+  color: #737373;
+  letter-spacing: 1px;
+  text-indent: 5%;
+  border-radius: 5px 0 0 5px;
+}
+
+
+#submit {
+  width: 25%;
+  background: #FDFCFB;
+  font-family: inherit;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 1px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+  
+
+input:focus {
+  outline: none;
+  outline: 2px solid #E86C8D;
+  box-shadow: 0 0 2px #E86C8D;
+}
