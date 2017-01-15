@@ -64,4 +64,17 @@ while True:
 button3.click()
 print "signed and sealed"
 
+while True:
+	print "about to close"
+	try: 
+		url = browser.current_url
+		if url == "https://www.docusign.com/developer-center?event=signing_complete":
+			break
+		
+	except Exception:	
+		pass
+	time.sleep(2)
+	print "asleep"
+
+
 browser.quit()
