@@ -11,7 +11,6 @@
 
 
 
-function blah() {
 var   	async = require("async"),		// async module
 	request = require("request"),		// request module
 	email = "campionf@uw.edu",				// your account email
@@ -103,7 +102,7 @@ async.waterfall(
 	}
 ]);
 
-}
+
 
 //***********************************************************************************************
 // --- HELPER FUNCTIONS ---
