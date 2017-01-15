@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.post('/audio', function (req, res) {
 
-	console.log(req.body)
+
 
 	var options = {
 		  args: [req.body]
@@ -24,10 +24,11 @@ app.post('/audio', function (req, res) {
 		  console.log(results)
 		  // results is an array consisting of messages collected during execution 
 		 // console.log('results: %j', results);
+		   	res.send('Done downsampling. File located at downsampled.wav');
+
 		});
 
 
-  	res.send('Done downsampling. File located at downsampled.wav');
 });
 
 

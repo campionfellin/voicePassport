@@ -26,10 +26,9 @@
 
 		<button onclick="startRecording(this)" class="hide" id="start">Record</button>
 		<button onclick="stopRecording(this)" class="hide" id="stop">Stop Recording</button>
-		<button onclick="verify()">Verify</button>
+		
 		<button onclick="redirectToDocusign()" id="docusign" class="hide" hidden>Sign Document</button>
- 	 	<ul id="recordingslist"></ul> <!-- add this class: class="hide"-->
-
+ 	 	
  	 
 		<script>
 		var audio_context;
@@ -38,8 +37,8 @@
 		const id = '111f427c-3791-468f-b709-fcef7660fff9';
 
 		function verify() {
-			var url = 'https://api.projectoxford.ai/spid/v1.0/identificationProfiles/111f427c-3791-468f-b709-fcef7660fff9/enroll?shortAudio=true';
-
+			//var url = 'https://api.projectoxford.ai/spid/v1.0/identificationProfiles/111f427c-3791-468f-b709-fcef7660fff9/enroll?shortAudio=true';
+			var url = "https://api.projectoxford.ai/spid/v1.0/verify?verificationProfileId=bdb1acd9-65c3-4368-8eaa-d95f8be2b953";
 			var file = new XMLHttpRequest();
 			file.open('GET', 'downsampled.wav');
 			file.responseType = 'arraybuffer';
@@ -56,8 +55,15 @@
 
 						xhr.onreadystatechange = function() {
 							if (xhr.readyState == XMLHttpRequest.DONE) {
-								if (xhr.status == 2020) {
-									
+								var data = JSON.parse(xhr.response)
+
+								console.log(data["result"]);
+								if (data["result"] == "Accept") {
+									console.log("laskjdlkasjdlkjaskldkkkkkkkkkkkk");
+									redirectToDocusign();
+									//window.location = "/thankyou.html";
+								} else {
+									console.log("it broke");
 								}
 							}
 						}
@@ -90,17 +96,37 @@
 			//redirectToDocusign(); //use this to skip the microsoft verification
 		}
 		function createDownloadLink() {
+
 			recorder && recorder.exportWAV(function(blob) {
 				var url = URL.createObjectURL(blob);
-        var link = window.document.createElement('a');
-        link.href = url;
-				link.id = 'link';
-        link.download = 'output.wav';
-        var click = document.createEvent("MouseEvents");
-        click.initEvent("click", true, true);
-        link.dispatchEvent(click);	
-				
+		        var link = window.document.createElement('a');
+		        link.href = url;
+						link.id = 'link';
+		        link.download = 'output.wav';
+		        console.log("here is the link: \n " + link);
+		        var click = document.createEvent("MouseEvents");
+		        click.initEvent("click", true, true);
+		        link.dispatchEvent(click);	
+		        var xhr = new XMLHttpRequest();
+			 xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 400) {
+                        console.log("hey");
+                        console.log(xhr.response);
+                        verify();
+                       
+                    } else {
+                        console.log("shit");
+                    }
+                }
+            };
+				xhr.open("POST", "/audio");
+			
+				xhr.send();
 			});
+
+			
+
 		}
 		
 		window.onload = function init() {

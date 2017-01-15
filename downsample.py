@@ -43,6 +43,7 @@ def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchanne
     try:
         s_read.close()
         s_write.close()
+        os.remove('/Users/campionfellin/Downloads/output.wav');
     except:
         print 'Failed to close wav files'
         return False
@@ -52,4 +53,4 @@ def downsampleWav(src, dst, inrate=44100, outrate=16000, inchannels=2, outchanne
 
 print sys.argv[1]
 
-downsampleWav(sys.argv[1], cwd + '/downsampled.wav', inrate=44100, outrate=16000, inchannels=2, outchannels=1)
+downsampleWav('/Users/campionfellin/Downloads/output.wav', cwd + '/downsampled.wav', inrate=44100, outrate=16000, inchannels=2, outchannels=1)
